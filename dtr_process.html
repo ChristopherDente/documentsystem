@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTR Process | Christopher - Backend Developer</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="d-flex" style="min-height: 100vh; background-color: #f8f9fa;">
+
+        <!-- Sidebar -->
+        <div class="bg-white border-end shadow-sm d-flex flex-column"
+            style="width: 280px; position: fixed; top: 0; bottom: 0; left: 0; overflow-y: auto; z-index: 1000;">
+            <div class="p-4 border-bottom">
+                <h4 class="fw-bold mb-0 text-primary">DTR Process</h4>
+                <small class="text-muted">System Documentation</small>
+            </div>
+
+            <div class="p-4 flex-grow-1">
+                <nav class="nav flex-column nav-pills dtr-sidebar gap-2">
+                    <a class="nav-link text-dark fw-medium active" href="#face-recognition"><i
+                            class="bi bi-person-bounding-box me-2"></i> Face Recognition Attendance</a>
+                    <a class="nav-link text-dark fw-medium" href="#system-architecture"><i
+                            class="bi bi-diagram-3-fill me-2"></i> System Architecture</a>
+                    <a class="nav-link text-dark fw-medium" href="#developer-guides"><i
+                            class="bi bi-journal-code me-2"></i> Developer Guides</a>
+                </nav>
+            </div>
+
+            <div class="p-4 border-top">
+                <a href="index.html" class="btn btn-outline-secondary w-100"><i class="bi bi-arrow-left me-2"></i>Back
+                    to Portfolio</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-grow-1" style="margin-left: 280px;">
+            <div class="p-5">
+
+                <!-- Face Recognition Section -->
+                <div id="face-recognition" class="mb-5 pb-4">
+                    <div class="mb-5">
+                        <span
+                            class="badge bg-primary-subtle text-primary mb-2 px-3 py-2 rounded-pill">Documentation</span>
+                        <h2 class="fw-bold display-6 mb-3">Face Recognition Attendance</h2>
+                        <p class="text-muted lead">A comprehensive guide to deploying and managing the AI-powered Daily
+                            Time Record (DTR) system.</p>
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div class="card border-0 shadow-sm mb-4 rounded-4">
+                        <div class="card-body p-4 p-lg-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 40px; height: 40px; font-weight: bold;">1</div>
+                                <h3 class="fw-bold mb-0">Environment Setup</h3>
+                            </div>
+                            <p class="text-muted mb-4">Before running the face recognition engine, you must prepare your
+                                Python environment. We highly recommend using a virtual environment to prevent
+                                dependency conflicts with other system-level packages.</p>
+
+                            <h6 class="fw-bold mb-3">Prerequisites:</h6>
+                            <ul class="text-muted mb-4">
+                                <li>Python 3.9 or higher</li>
+                                <li>CMake (required for building dlib)</li>
+                                <li>A working webcam or IP Camera stream</li>
+                            </ul>
+
+                            <div class="bg-dark text-light p-4 rounded-3 font-monospace small mb-0 overflow-auto">
+                                <span class="text-secondary"># Clone the repository</span><br>
+                                git clone https://github.com/christopher/dtr-face-recognition.git<br>
+                                cd dtr-face-recognition<br><br>
+                                <span class="text-secondary"># Create and activate virtual environment</span><br>
+                                python -m venv venv<br>
+                                source venv/bin/activate <span class="text-secondary"># On Windows use:
+                                    venv\Scripts\activate</span><br><br>
+                                <span class="text-secondary"># Install dependencies</span><br>
+                                pip install -r requirements.txt
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="card border-0 shadow-sm mb-4 rounded-4">
+                        <div class="card-body p-4 p-lg-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 40px; height: 40px; font-weight: bold;">2</div>
+                                <h3 class="fw-bold mb-0">System Configuration</h3>
+                            </div>
+                            <p class="text-muted mb-4">Once the environment is ready, you must configure the camera
+                                source and API endpoints. Locate the <code>config.json</code> file in the root
+                                directory.</p>
+                            <div class="table-responsive border rounded-3 mb-4">
+                                <table class="table table-borderless table-hover mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Property</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-muted">
+                                        <tr>
+                                            <td><code>camera_source</code></td>
+                                            <td>Integer / String</td>
+                                            <td>Use <code>0</code> for local webcam, or provide an RTSP stream URL for
+                                                IP cameras.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>tolerance</code></td>
+                                            <td>Float</td>
+                                            <td>Strictness of face matching. Default is <code>0.45</code>. Lower means
+                                                stricter.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>api_url</code></td>
+                                            <td>String</td>
+                                            <td>The Laravel backend endpoint where attendance logs are pushed.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="card border-0 shadow-sm mb-4 rounded-4">
+                        <div class="card-body p-4 p-lg-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 40px; height: 40px; font-weight: bold;">3</div>
+                                <h3 class="fw-bold mb-0">Employee Registration & Encoding</h3>
+                            </div>
+                            <p class="text-muted mb-4">To recognize employees, the system needs baseline facial
+                                encodings. Place clear, front-facing photos of employees inside the
+                                <code>/dataset/employees/</code> folder. The filename should be their unique Employee ID
+                                (e.g., <code>EMP-1029.jpg</code>).
+                            </p>
+                            <p class="text-muted mb-4">After adding the photos, run the encoding script to process and
+                                save the facial features into a secure binary file:</p>
+                            <div class="bg-dark text-light p-3 rounded-3 font-monospace small">
+                                python encode_faces.py --dataset ./dataset/employees --encodings encodings.pickle
+                            </div>
+                            <div class="alert alert-warning mt-4 mb-0 border-0" role="alert">
+                                <i class="bi bi-exclamation-triangle-fill me-2"></i> <strong>Note:</strong> Re-run this
+                                script every time a new employee is added to the system.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="card border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4 p-lg-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 40px; height: 40px; font-weight: bold;">4</div>
+                                <h3 class="fw-bold mb-0">Live Recognition & Syncing</h3>
+                            </div>
+                            <p class="text-muted mb-4">Start the live attendance tracker. The system will open the
+                                camera feed, draw bounding boxes around recognized faces, and log the time-in/time-out
+                                events to a local CSV file.</p>
+                            <div class="bg-dark text-light p-3 rounded-3 font-monospace small mb-4">
+                                python run_attendance.py
+                            </div>
+                            <p class="text-muted mb-0">A background cron job (or scheduled task) will parse the
+                                <code>attendance_log.csv</code> every 5 minutes, validate the data, and dispatch a POST
+                                request to the Laravel backend, ensuring the HR dashboard remains up-to-date in real
+                                time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-secondary opacity-25 my-5">
+
+                <!-- System Architecture Section -->
+                <div id="system-architecture" class="mb-5 pb-4 pt-4">
+                    <div class="mb-5">
+                        <span
+                            class="badge bg-primary-subtle text-primary mb-2 px-3 py-2 rounded-pill">Architecture</span>
+                        <h2 class="fw-bold display-6 mb-3">System Architecture</h2>
+                        <p class="text-muted lead">High-level overview of how the Python AI engine communicates with the
+                            web infrastructure.</p>
+                    </div>
+
+                    <div class="card border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4 p-lg-5">
+                            <h4 class="fw-bold mb-4"><i class="bi bi-hdd-network text-primary me-2"></i> Component
+                                Breakdown</h4>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="p-4 bg-light rounded-4 h-100 border">
+                                        <h5 class="fw-bold"><i class="bi bi-cpu me-2"></i> Edge Device (Python)</h5>
+                                        <p class="text-muted small mb-0">Handles the heavy lifting of facial detection
+                                            (HOG/CNN algorithms) and encoding comparisons. Runs continuously at the
+                                            physical office location.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 bg-light rounded-4 h-100 border">
+                                        <h5 class="fw-bold"><i class="bi bi-cloud-arrow-up me-2"></i> REST API (Laravel)
+                                        </h5>
+                                        <p class="text-muted small mb-0">Acts as the secure gateway. Receives JSON
+                                            payloads containing employee IDs and timestamps, authenticates via bearer
+                                            tokens, and writes to the DB.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 bg-light rounded-4 h-100 border">
+                                        <h5 class="fw-bold"><i class="bi bi-database me-2"></i> Database (MySQL)</h5>
+                                        <p class="text-muted small mb-0">Centralized storage for employee records, daily
+                                            time records, overtime calculations, and shift schedules.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 bg-light rounded-4 h-100 border">
+                                        <h5 class="fw-bold"><i class="bi bi-browser-chrome me-2"></i> Web Client
+                                            (Vue/Bootstrap)</h5>
+                                        <p class="text-muted small mb-0">The HR interface used to generate payroll
+                                            reports, manage employee data, and view real-time attendance graphs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-secondary opacity-25 my-5">
+
+                <!-- Developer Guides Section -->
+                <div id="developer-guides" class="mb-5 pb-5 pt-4">
+                    <div class="mb-5">
+                        <span class="badge bg-primary-subtle text-primary mb-2 px-3 py-2 rounded-pill">Guidelines</span>
+                        <h2 class="fw-bold display-6 mb-3">Developer Guides</h2>
+                        <p class="text-muted lead">Best practices for maintaining and extending the DTR application.</p>
+                    </div>
+
+                    <div class="card border-0 shadow-sm rounded-4 mb-4">
+                        <div class="card-body p-4 p-lg-5">
+                            <h4 class="fw-bold mb-4"><i class="bi bi-code-slash text-primary me-2"></i> Coding Standards
+                            </h4>
+                            <ul class="list-group list-group-flush text-muted">
+                                <li class="list-group-item bg-transparent px-0 py-3 border-light">
+                                    <strong>Python:</strong> Follow PEP 8 guidelines. All functions must include
+                                    comprehensive docstrings detailing expected parameters and return types.
+                                </li>
+                                <li class="list-group-item bg-transparent px-0 py-3 border-light"><strong>Laravel
+                                        (PHP):</strong> Adhere to PSR-12 coding standards. Keep controllers thin;
+                                    offload complex business logic to Service classes (e.g.,
+                                    <code>AttendanceCalculationService</code>).
+                                </li>
+                                <li class="list-group-item bg-transparent px-0 py-3 border-light">
+                                    <strong>Security:</strong> Never hardcode API keys or database credentials. Always
+                                    utilize the <code>.env</code> file for configuration management.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4 p-lg-5">
+                            <h4 class="fw-bold mb-4"><i class="bi bi-git text-primary me-2"></i> Git Workflow</h4>
+                            <p class="text-muted mb-0">We use a standard Feature Branch Workflow. Create branches off
+                                <code>develop</code> using the naming convention
+                                <code>feature/issue-number-description</code>. Submit Pull Requests requiring at least
+                                one approving review before merging.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
