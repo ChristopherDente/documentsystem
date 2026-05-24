@@ -540,3 +540,160 @@ footer {
     padding-left: 40px;
   }
 }
+
+/* =============================================
+   DARK MODE OVERRIDES
+   Fix Bootstrap hardcoded utility classes
+   ============================================= */
+
+[data-theme="dark"] .text-muted {
+  color: #adb5bd !important;
+}
+[data-theme="dark"] .text-dark {
+  color: #f1f3f5 !important;
+}
+[data-theme="dark"] .bg-white {
+  background-color: var(--card-bg) !important;
+}
+[data-theme="dark"] .bg-light {
+  background-color: #2a2a2a !important;
+  color: var(--text-color) !important;
+}
+[data-theme="dark"] .bg-light-alt {
+  background-color: var(--bg-light) !important;
+}
+
+/* Cards */
+[data-theme="dark"] .card {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+[data-theme="dark"] .card h1,
+[data-theme="dark"] .card h2,
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .card h4,
+[data-theme="dark"] .card h5,
+[data-theme="dark"] .card h6 {
+  color: var(--text-color) !important;
+}
+
+/* Tables */
+[data-theme="dark"] .table {
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
+}
+[data-theme="dark"] .table-light,
+[data-theme="dark"] thead.table-light {
+  background-color: #2d2d2d !important;
+  color: #e0e0e0 !important;
+}
+[data-theme="dark"] .table-hover tbody tr:hover {
+  background-color: rgba(255,255,255,0.05) !important;
+  color: var(--text-color) !important;
+}
+[data-theme="dark"] .table-borderless td,
+[data-theme="dark"] .table-borderless th {
+  border-color: var(--border-color) !important;
+}
+
+/* Borders */
+[data-theme="dark"] .border,
+[data-theme="dark"] .border-end,
+[data-theme="dark"] .border-bottom,
+[data-theme="dark"] .border-top,
+[data-theme="dark"] .border-light {
+  border-color: var(--border-color) !important;
+}
+
+/* Form controls */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-control:focus {
+  background-color: #2a2a2a !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+[data-theme="dark"] .form-control::placeholder {
+  color: #6c757d !important;
+}
+[data-theme="dark"] textarea.form-control {
+  background-color: #2a2a2a !important;
+  color: var(--text-color) !important;
+}
+
+/* Code blocks */
+[data-theme="dark"] code {
+  color: #e0aaff !important;
+  background-color: rgba(255,255,255,0.08);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+[data-theme="dark"] .bg-dark {
+  background-color: #0d0d0d !important;
+}
+
+/* Badges */
+[data-theme="dark"] .badge.bg-primary-subtle {
+  background-color: rgba(61, 139, 253, 0.2) !important;
+  color: #74b3ff !important;
+}
+[data-theme="dark"] .badge.bg-success-subtle {
+  background-color: rgba(25, 135, 84, 0.2) !important;
+  color: #5dd789 !important;
+}
+
+/* Alert */
+[data-theme="dark"] .alert-warning {
+  background-color: rgba(255, 193, 7, 0.15) !important;
+  color: #ffd454 !important;
+  border-color: rgba(255, 193, 7, 0.3) !important;
+}
+
+/* Buttons */
+[data-theme="dark"] .btn-outline-secondary {
+  color: #adb5bd !important;
+  border-color: #555 !important;
+}
+[data-theme="dark"] .btn-outline-secondary:hover {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+/* List groups */
+[data-theme="dark"] .list-group-item {
+  background-color: transparent !important;
+  color: #ccc !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Document cards & skill pills in marquee */
+[data-theme="dark"] .document-card {
+  background-color: var(--card-bg) !important;
+}
+[data-theme="dark"] .document-card h5,
+[data-theme="dark"] .document-card p {
+  color: var(--text-color) !important;
+}
+
+/* Feature icon circle */
+[data-theme="dark"] .feature-icon-wrapper {
+  background-color: #2a2a2a !important;
+}
+
+/* Navbar collapse mobile */
+[data-theme="dark"] .navbar-collapse {
+  background-color: var(--bg-color);
+}
+
+/* DTR sidebar */
+[data-theme="dark"] .dtr-sidebar .nav-link {
+  color: #ccc !important;
+}
+[data-theme="dark"] .dtr-sidebar .nav-link:hover {
+  background-color: #2a2a2a !important;
+}
+[data-theme="dark"] .dtr-sidebar .nav-link.active {
+  background-color: rgba(61, 139, 253, 0.15) !important;
+  color: #74b3ff !important;
+}
+
