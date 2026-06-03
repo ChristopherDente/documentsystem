@@ -21,38 +21,53 @@
 </head>
 
 <body>
-    <div class="d-flex" style="min-height: 100vh; background-color: #f8f9fa;">
+    <div class="d-flex doc-layout flex-column flex-lg-row">
+
+        <!-- Mobile Header -->
+        <div class="d-lg-none p-3 border-bottom d-flex justify-content-between align-items-center bg-white sticky-top shadow-sm">
+            <div>
+                <h5 class="fw-bold mb-0 text-success">TESDA NC II CSS</h5>
+            </div>
+            <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#docSidebarOffcanvas" aria-controls="docSidebarOffcanvas">
+                <i class="bi bi-list fs-4"></i>
+            </button>
+        </div>
 
         <!-- Sidebar -->
-        <div class="bg-white border-end shadow-sm d-flex flex-column"
-            style="width: 280px; position: fixed; top: 0; bottom: 0; left: 0; overflow-y: auto; z-index: 1000;">
-            <div class="p-4 border-bottom">
+        <div class="offcanvas-lg offcanvas-start doc-sidebar shadow-sm d-flex flex-column bg-white" tabindex="-1" id="docSidebarOffcanvas" aria-labelledby="docSidebarLabel">
+            <div class="offcanvas-header p-4 border-bottom d-lg-none">
+                <h5 class="fw-bold mb-0 text-success" id="docSidebarLabel">Menu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docSidebarOffcanvas" aria-label="Close"></button>
+            </div>
+
+            <div class="p-4 border-bottom d-none d-lg-block">
                 <h4 class="fw-bold mb-0 text-success">TESDA NC II CSS</h4>
                 <small class="text-muted">Documentation Guides</small>
             </div>
 
-            <div class="p-4 flex-grow-1">
-                <nav class="nav flex-column nav-pills dtr-sidebar gap-2">
-                    <a class="nav-link text-dark fw-medium active" href="#module-1"><i
-                            class="bi bi-pc-display me-2"></i> Install & Configure</a>
-                    <a class="nav-link text-dark fw-medium" href="#module-2"><i class="bi bi-router me-2"></i> Set Up
-                        Networks</a>
-                    <a class="nav-link text-dark fw-medium" href="#module-3"><i class="bi bi-server me-2"></i> Set Up
-                        Servers</a>
-                    <a class="nav-link text-dark fw-medium" href="#module-4"><i class="bi bi-tools me-2"></i> Maintain &
-                        Repair</a>
-                </nav>
-            </div>
+            <div class="offcanvas-body p-0 flex-grow-1 flex-column">
+                <div class="p-4 flex-grow-1 overflow-auto">
+                    <nav class="nav flex-column nav-pills dtr-sidebar gap-2">
+                        <a class="nav-link text-dark fw-medium active" href="#module-1"><i
+                                class="bi bi-pc-display me-2"></i> Install & Configure</a>
+                        <a class="nav-link text-dark fw-medium" href="#module-2"><i class="bi bi-router me-2"></i> Set Up
+                            Networks</a>
+                        <a class="nav-link text-dark fw-medium" href="#module-3"><i class="bi bi-server me-2"></i> Set Up
+                            Servers</a>
+                        <a class="nav-link text-dark fw-medium" href="#module-4"><i class="bi bi-tools me-2"></i> Maintain &
+                            Repair</a>
+                    </nav>
+                </div>
 
-            <div class="p-4 border-top">
-                <a href="index.html" class="btn btn-outline-secondary w-100"><i class="bi bi-arrow-left me-2"></i>Back
-                    to Portfolio</a>
+                <div class="p-4 border-top mt-auto">
+                    <a href="index.html" class="btn btn-outline-secondary w-100"><i class="bi bi-arrow-left me-2"></i>Back to Portfolio</a>
+                </div>
             </div>
         </div>
 
         <!-- Main Content -->
-        <div class="flex-grow-1" style="margin-left: 280px;">
-            <div class="p-5">
+        <div class="doc-main">
+            <div class="container-fluid p-3 p-md-5">
 
                 <!-- Intro -->
                 <div class="mb-5 pb-2">

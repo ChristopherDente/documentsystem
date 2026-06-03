@@ -21,35 +21,50 @@
 </head>
 
 <body>
-    <div class="d-flex" style="min-height: 100vh; background-color: #f8f9fa;">
+    <div class="d-flex doc-layout flex-column flex-lg-row">
+
+        <!-- Mobile Header -->
+        <div class="d-lg-none p-3 border-bottom d-flex justify-content-between align-items-center bg-white sticky-top shadow-sm">
+            <div>
+                <h5 class="fw-bold mb-0 text-primary">DTR Process</h5>
+            </div>
+            <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#docSidebarOffcanvas" aria-controls="docSidebarOffcanvas">
+                <i class="bi bi-list fs-4"></i>
+            </button>
+        </div>
 
         <!-- Sidebar -->
-        <div class="bg-white border-end shadow-sm d-flex flex-column"
-            style="width: 280px; position: fixed; top: 0; bottom: 0; left: 0; overflow-y: auto; z-index: 1000;">
-            <div class="p-4 border-bottom">
+        <div class="offcanvas-lg offcanvas-start doc-sidebar shadow-sm d-flex flex-column bg-white" tabindex="-1" id="docSidebarOffcanvas" aria-labelledby="docSidebarLabel">
+            <div class="offcanvas-header p-4 border-bottom d-lg-none">
+                <h5 class="fw-bold mb-0 text-primary" id="docSidebarLabel">Menu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docSidebarOffcanvas" aria-label="Close"></button>
+            </div>
+
+            <div class="p-4 border-bottom d-none d-lg-block">
                 <h4 class="fw-bold mb-0 text-primary">DTR Process</h4>
                 <small class="text-muted">System Documentation</small>
             </div>
 
-            <div class="p-4 flex-grow-1">
-                <p class="text-uppercase text-muted fw-bold small mb-2" style="font-size:0.7rem; letter-spacing:.08em;">Documentation</p>
-                <nav class="nav flex-column nav-pills dtr-sidebar gap-2">
-                    <a class="nav-link text-dark fw-medium" href="tesda_css.html"><i class="bi bi-pc-display me-2"></i> TESDA NC II CSS</a>
-                    <a class="nav-link text-dark fw-medium active" href="#face-recognition"><i class="bi bi-person-bounding-box me-2"></i> Face Recognition Attendance</a>
-                    <a class="nav-link text-dark fw-medium" href="#system-architecture"><i class="bi bi-diagram-3-fill me-2"></i> System Architecture</a>
-                    <a class="nav-link text-dark fw-medium" href="#developer-guides"><i class="bi bi-journal-code me-2"></i> Developer Guides</a>
-                </nav>
-            </div>
+            <div class="offcanvas-body p-0 flex-grow-1 flex-column">
+                <div class="p-4 flex-grow-1 overflow-auto">
+                    <p class="text-uppercase text-muted fw-bold small mb-2" style="font-size:0.7rem; letter-spacing:.08em;">Documentation</p>
+                    <nav class="nav flex-column nav-pills dtr-sidebar gap-2">
+                        <a class="nav-link text-dark fw-medium" href="tesda_css.html"><i class="bi bi-pc-display me-2"></i> TESDA NC II CSS</a>
+                        <a class="nav-link text-dark fw-medium active" href="#face-recognition"><i class="bi bi-person-bounding-box me-2"></i> Face Recognition Attendance</a>
+                        <a class="nav-link text-dark fw-medium" href="#system-architecture"><i class="bi bi-diagram-3-fill me-2"></i> System Architecture</a>
+                        <a class="nav-link text-dark fw-medium" href="#developer-guides"><i class="bi bi-journal-code me-2"></i> Developer Guides</a>
+                    </nav>
+                </div>
 
-            <div class="p-4 border-top">
-                <a href="index.html" class="btn btn-outline-secondary w-100"><i class="bi bi-arrow-left me-2"></i>Back
-                    to Portfolio</a>
+                <div class="p-4 border-top mt-auto">
+                    <a href="index.html" class="btn btn-outline-secondary w-100"><i class="bi bi-arrow-left me-2"></i>Back to Portfolio</a>
+                </div>
             </div>
         </div>
 
         <!-- Main Content -->
-        <div class="flex-grow-1" style="margin-left: 280px;">
-            <div class="p-5">
+        <div class="doc-main">
+            <div class="container-fluid p-3 p-md-5">
 
                 <!-- Face Recognition Section -->
                 <div id="face-recognition" class="mb-5 pb-4">

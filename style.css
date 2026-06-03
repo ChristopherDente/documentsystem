@@ -25,11 +25,17 @@
   --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.5);
 }
 
-body {
+html, body {
   font-family: 'Inter', sans-serif;
   color: var(--text-color);
   background-color: var(--bg-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Fix for AOS Animation horizontal scroll bug on mobile */
+body[data-aos-easing] {
   overflow-x: hidden;
 }
 
@@ -289,7 +295,33 @@ section {
   margin-left: 4px;
 }
 
-/* DTR Sidebar Navigation */
+/* DTR Sidebar Navigation & Layout */
+.doc-layout {
+  min-height: 100vh;
+  background-color: var(--bg-light);
+}
+.doc-sidebar {
+  width: 280px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 1000;
+  background-color: var(--card-bg);
+  border-right: 1px solid var(--border-color);
+}
+.doc-main {
+  margin-left: 280px;
+  flex-grow: 1;
+}
+
+@media (max-width: 991.98px) {
+  .doc-main {
+    margin-left: 0;
+  }
+}
+
 .dtr-sidebar .nav-link {
   border-radius: 8px;
   transition: var(--transition);
@@ -681,8 +713,14 @@ footer {
 }
 
 /* Navbar collapse mobile */
-[data-theme="dark"] .navbar-collapse {
-  background-color: var(--bg-color);
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: var(--bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    margin-top: 10px;
+  }
 }
 
 /* DTR sidebar */

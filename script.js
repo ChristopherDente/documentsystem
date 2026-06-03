@@ -1,20 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Hide Loader
     const loader = document.getElementById('loader');
-    setTimeout(() => {
-        loader.style.opacity = '0';
+    if (loader) {
         setTimeout(() => {
-            loader.style.display = 'none';
-        }, 500);
-    }, 1000);
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }, 1000);
+    }
 
     // Initialize AOS
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-    });
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false,
+            disable: 'mobile'
+        });
+    }
 
     // Navbar Scroll Effect
     const navbar = document.querySelector('.navbar');
@@ -28,25 +33,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Back to Top Button
     const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.style.display = 'flex';
-        } else {
-            backToTop.style.display = 'none';
-        }
-    });
-
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
         });
-    });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+
 
     // Theme Toggle (Dark Mode)
     const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    const icon = themeToggle.querySelector('i');
+    if (themeToggle) {
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
 
     // Check for saved theme
     const savedTheme = localStorage.getItem('theme');
@@ -55,17 +65,18 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.replace('bi-moon', 'bi-sun');
     }
 
-    themeToggle.addEventListener('click', () => {
-        if (body.getAttribute('data-theme') === 'dark') {
-            body.removeAttribute('data-theme');
-            icon.classList.replace('bi-sun', 'bi-moon');
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            icon.classList.replace('bi-moon', 'bi-sun');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                icon.classList.replace('bi-sun', 'bi-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                icon.classList.replace('bi-moon', 'bi-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
 
     // Project Filtering
     const filterBtns = document.querySelectorAll('.filter-btn');
