@@ -51,17 +51,18 @@
 
             <div class="offcanvas-body p-0 flex-grow-1 flex-column">
                 <div class="p-4 flex-grow-1 overflow-auto">
-                    <p class="text-uppercase text-muted fw-bold small mb-2"
-                        style="font-size:0.7rem; letter-spacing:.08em;">Documentation</p>
                     <nav class="nav flex-column nav-pills dtr-sidebar gap-2">
-                        <a class="nav-link text-dark fw-medium" href="tesda_css.html"><i
-                                class="bi bi-pc-display me-2"></i> TESDA NC II CSS</a>
-                        <a class="nav-link text-dark fw-medium active" href="#face-recognition"><i
-                                class="bi bi-person-bounding-box me-2"></i> Face Recognition Attendance</a>
-                        <a class="nav-link text-dark fw-medium" href="#system-architecture"><i
-                                class="bi bi-diagram-3-fill me-2"></i> System Architecture</a>
-                        <a class="nav-link text-dark fw-medium" href="#developer-guides"><i
-                                class="bi bi-journal-code me-2"></i> Developer Guides</a>
+                        <a class="nav-link text-dark fw-medium active" href="#step-1"><i
+                                class="bi bi-book me-2"></i> Prerequisite Knowledge</a>
+                        <a class="nav-link text-dark fw-medium" href="#step-2"><i
+                                class="bi bi-box-seam me-2"></i> Environment Setup</a>
+                        <a class="nav-link text-dark fw-medium" href="#step-3"><i class="bi bi-gear me-2"></i> System
+                            Configuration</a>
+                        <a class="nav-link text-dark fw-medium" href="#step-4"><i class="bi bi-person-badge me-2"></i> Employee
+                            Registration</a>
+                        <a class="nav-link text-dark fw-medium" href="#step-5"><i class="bi bi-camera-video me-2"></i> Live
+                            Recognition</a>
+
                     </nav>
                 </div>
 
@@ -87,11 +88,61 @@
                     </div>
 
                     <!-- Step 1 -->
-                    <div class="card border-0 shadow-sm mb-4 rounded-4">
+                    <div id="step-1" class="card border-0 shadow-sm mb-4 rounded-4">
                         <div class="card-body p-4 p-lg-5">
                             <div class="d-flex align-items-center mb-4">
                                 <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
                                     style="width: 40px; height: 40px; font-weight: bold;">1</div>
+                                <h3 class="fw-bold mb-0">Prerequisite Knowledge</h3>
+                            </div>
+                            <p class="text-muted mb-4">Before diving into the system, you must have a basic understanding of the following technologies to effectively manage and troubleshoot the environment:</p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="p-3 border rounded-3 bg-light d-flex align-items-start h-100">
+                                        <i class="bi bi-filetype-html fs-4 text-primary me-3 mt-1"></i>
+                                        <div>
+                                            <span class="fw-bold text-dark d-block">HTML & CSS</span>
+                                            <small class="text-muted">Used for building and styling the front-end user interface, including the HR dashboard, real-time attendance tracking views, and the employee management portals.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 border rounded-3 bg-light d-flex align-items-start h-100">
+                                        <i class="bi bi-filetype-php fs-4 text-primary me-3 mt-1"></i>
+                                        <div>
+                                            <span class="fw-bold text-dark d-block">PHP</span>
+                                            <small class="text-muted">Handles server-side logic and backend routing. It processes API requests from the face recognition device, authenticates payloads, and generates payroll reports.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 border rounded-3 bg-light d-flex align-items-start h-100">
+                                        <i class="bi bi-database fs-4 text-primary me-3 mt-1"></i>
+                                        <div>
+                                            <span class="fw-bold text-dark d-block">Database (MySQL)</span>
+                                            <small class="text-muted">Serves as the centralized, relational storage system. It securely stores baseline employee records, daily attendance logs, and complex overtime calculations.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 border rounded-3 bg-light d-flex align-items-start h-100">
+                                        <i class="bi bi-filetype-py fs-4 text-primary me-3 mt-1"></i>
+                                        <div>
+                                            <span class="fw-bold text-dark d-block">Python</span>
+                                            <small class="text-muted">Powers the core AI and face recognition engine. It runs background processes to capture camera feeds, perform algorithmic facial detection, and dispatch attendance data.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div id="step-2" class="card border-0 shadow-sm mb-4 rounded-4">
+                        <div class="card-body p-4 p-lg-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 40px; height: 40px; font-weight: bold;">2</div>
                                 <h3 class="fw-bold mb-0">Environment Setup</h3>
                             </div>
                             <p class="text-muted mb-4">Before running the face recognition engine, you must prepare your
@@ -119,12 +170,12 @@
                         </div>
                     </div>
 
-                    <!-- Step 2 -->
-                    <div class="card border-0 shadow-sm mb-4 rounded-4">
+                    <!-- Step 3 -->
+                    <div id="step-3" class="card border-0 shadow-sm mb-4 rounded-4">
                         <div class="card-body p-4 p-lg-5">
                             <div class="d-flex align-items-center mb-4">
                                 <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                                    style="width: 40px; height: 40px; font-weight: bold;">2</div>
+                                    style="width: 40px; height: 40px; font-weight: bold;">3</div>
                                 <h3 class="fw-bold mb-0">System Configuration</h3>
                             </div>
                             <p class="text-muted mb-4">Once the environment is ready, you must configure the camera
@@ -163,12 +214,12 @@
                         </div>
                     </div>
 
-                    <!-- Step 3 -->
-                    <div class="card border-0 shadow-sm mb-4 rounded-4">
+                    <!-- Step 4 -->
+                    <div id="step-4" class="card border-0 shadow-sm mb-4 rounded-4">
                         <div class="card-body p-4 p-lg-5">
                             <div class="d-flex align-items-center mb-4">
                                 <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                                    style="width: 40px; height: 40px; font-weight: bold;">3</div>
+                                    style="width: 40px; height: 40px; font-weight: bold;">4</div>
                                 <h3 class="fw-bold mb-0">Employee Registration & Encoding</h3>
                             </div>
                             <p class="text-muted mb-4">To recognize employees, the system needs baseline facial
@@ -188,12 +239,12 @@
                         </div>
                     </div>
 
-                    <!-- Step 4 -->
-                    <div class="card border-0 shadow-sm rounded-4">
+                    <!-- Step 5 -->
+                    <div id="step-5" class="card border-0 shadow-sm rounded-4">
                         <div class="card-body p-4 p-lg-5">
                             <div class="d-flex align-items-center mb-4">
                                 <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                                    style="width: 40px; height: 40px; font-weight: bold;">4</div>
+                                    style="width: 40px; height: 40px; font-weight: bold;">5</div>
                                 <h3 class="fw-bold mb-0">Live Recognition & Syncing</h3>
                             </div>
                             <p class="text-muted mb-4">Start the live attendance tracker. The system will open the
@@ -211,103 +262,7 @@
                     </div>
                 </div>
 
-                <hr class="border-secondary opacity-25 my-5">
 
-                <!-- System Architecture Section -->
-                <div id="system-architecture" class="mb-5 pb-4 pt-4">
-                    <div class="mb-5">
-                        <span
-                            class="badge bg-primary-subtle text-primary mb-2 px-3 py-2 rounded-pill">Architecture</span>
-                        <h2 class="fw-bold display-6 mb-3">System Architecture</h2>
-                        <p class="text-muted lead">High-level overview of how the Python AI engine communicates with the
-                            web infrastructure.</p>
-                    </div>
-
-                    <div class="card border-0 shadow-sm rounded-4">
-                        <div class="card-body p-4 p-lg-5">
-                            <h4 class="fw-bold mb-4"><i class="bi bi-hdd-network text-primary me-2"></i> Component
-                                Breakdown</h4>
-                            <div class="row g-4">
-                                <div class="col-md-6">
-                                    <div class="p-4 bg-light rounded-4 h-100 border">
-                                        <h5 class="fw-bold"><i class="bi bi-cpu me-2"></i> Edge Device (Python)</h5>
-                                        <p class="text-muted small mb-0">Handles the heavy lifting of facial detection
-                                            (HOG/CNN algorithms) and encoding comparisons. Runs continuously at the
-                                            physical office location.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="p-4 bg-light rounded-4 h-100 border">
-                                        <h5 class="fw-bold"><i class="bi bi-cloud-arrow-up me-2"></i> REST API (Laravel)
-                                        </h5>
-                                        <p class="text-muted small mb-0">Acts as the secure gateway. Receives JSON
-                                            payloads containing employee IDs and timestamps, authenticates via bearer
-                                            tokens, and writes to the DB.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="p-4 bg-light rounded-4 h-100 border">
-                                        <h5 class="fw-bold"><i class="bi bi-database me-2"></i> Database (MySQL)</h5>
-                                        <p class="text-muted small mb-0">Centralized storage for employee records, daily
-                                            time records, overtime calculations, and shift schedules.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="p-4 bg-light rounded-4 h-100 border">
-                                        <h5 class="fw-bold"><i class="bi bi-browser-chrome me-2"></i> Web Client
-                                            (Vue/Bootstrap)</h5>
-                                        <p class="text-muted small mb-0">The HR interface used to generate payroll
-                                            reports, manage employee data, and view real-time attendance graphs.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="border-secondary opacity-25 my-5">
-
-                <!-- Developer Guides Section -->
-                <div id="developer-guides" class="mb-5 pb-5 pt-4">
-                    <div class="mb-5">
-                        <span class="badge bg-primary-subtle text-primary mb-2 px-3 py-2 rounded-pill">Guidelines</span>
-                        <h2 class="fw-bold display-6 mb-3">Developer Guides</h2>
-                        <p class="text-muted lead">Best practices for maintaining and extending the DTR application.</p>
-                    </div>
-
-                    <div class="card border-0 shadow-sm rounded-4 mb-4">
-                        <div class="card-body p-4 p-lg-5">
-                            <h4 class="fw-bold mb-4"><i class="bi bi-code-slash text-primary me-2"></i> Coding Standards
-                            </h4>
-                            <ul class="list-group list-group-flush text-muted">
-                                <li class="list-group-item bg-transparent px-0 py-3 border-light">
-                                    <strong>Python:</strong> Follow PEP 8 guidelines. All functions must include
-                                    comprehensive docstrings detailing expected parameters and return types.
-                                </li>
-                                <li class="list-group-item bg-transparent px-0 py-3 border-light"><strong>Laravel
-                                        (PHP):</strong> Adhere to PSR-12 coding standards. Keep controllers thin;
-                                    offload complex business logic to Service classes (e.g.,
-                                    <code>AttendanceCalculationService</code>).
-                                </li>
-                                <li class="list-group-item bg-transparent px-0 py-3 border-light">
-                                    <strong>Security:</strong> Never hardcode API keys or database credentials. Always
-                                    utilize the <code>.env</code> file for configuration management.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="card border-0 shadow-sm rounded-4">
-                        <div class="card-body p-4 p-lg-5">
-                            <h4 class="fw-bold mb-4"><i class="bi bi-git text-primary me-2"></i> Git Workflow</h4>
-                            <p class="text-muted mb-0">We use a standard Feature Branch Workflow. Create branches off
-                                <code>develop</code> using the naming convention
-                                <code>feature/issue-number-description</code>. Submit Pull Requests requiring at least
-                                one approving review before merging.
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
