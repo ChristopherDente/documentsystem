@@ -194,4 +194,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Close offcanvas sidebar on mobile when a link is clicked
+    const sidebarLinks = document.querySelectorAll('.dtr-sidebar .nav-link');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 992) {
+                const offcanvasEl = document.getElementById('docSidebarOffcanvas');
+                if (offcanvasEl) {
+                    const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl) || new bootstrap.Offcanvas(offcanvasEl);
+                    bsOffcanvas.hide();
+                }
+            }
+        });
+    });
 });

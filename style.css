@@ -301,25 +301,28 @@ section {
   background-color: var(--bg-light);
 }
 .doc-sidebar {
-  width: 280px;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  overflow-y: auto;
-  z-index: 1000;
   background-color: var(--card-bg);
   border-right: 1px solid var(--border-color);
-}
-.doc-main {
-  margin-left: 280px;
-  flex-grow: 1;
+  --bs-offcanvas-width: 280px;
 }
 
-@media (max-width: 991.98px) {
-  .doc-main {
-    margin-left: 0;
+@media (min-width: 992px) {
+  .doc-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+    overflow-y: auto;
+    z-index: 1000;
   }
+  .doc-main {
+    margin-left: 280px;
+  }
+}
+
+.doc-main {
+  flex-grow: 1;
 }
 
 .dtr-sidebar .nav-link {
